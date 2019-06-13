@@ -40,21 +40,21 @@ outputs:
   output_parse_stderr:
     outputSource: parse_pred_contigs/stderr
     type: File
-  output_prodigal:
-    outputSource: subworkflow_for_each_fasta/prodigal_out
-    type:
-      type: array
-      items: File
-  output_final_mapping:
-    outputSource: subworkflow_for_each_fasta/mapping_results
-    type:
-      type: array
-      items: Directory
-  output_final_assign:
-    outputSource: subworkflow_for_each_fasta/assign_results
-    type:
-      type: array
-      items: File
+#  output_prodigal:
+#    outputSource: subworkflow_for_each_fasta/prodigal_out
+#    type:
+#      type: array
+#      items: File
+#  output_final_mapping:
+#    outputSource: subworkflow_for_each_fasta/mapping_results
+#    type:
+#      type: array
+#      items: Directory
+#  output_final_assign:
+#    outputSource: subworkflow_for_each_fasta/assign_results
+#    type:
+#      type: array
+#      items: File
 
 steps:
   length_filter:
@@ -92,20 +92,20 @@ steps:
       - stderr
     run: ../Tools/ParsingPredictions/parse_viral_pred.cwl
 
-  subworkflow_for_each_fasta:
-    in:
-      fasta_file: parse_pred_contigs/output_fastas  # array
-    out:
-      - prodigal_out
-      - hmmscan_out
-      - modification_out
-      - ratio_evalue_table
-      - annotation_table
-      - mapping_results
-      - assign_results
+#  subworkflow_for_each_fasta:
+#    in:
+#      fasta_file: parse_pred_contigs/output_fastas  # array
+#    out:
+#      - prodigal_out
+#      - hmmscan_out
+#      - modification_out
+#      - ratio_evalue_table
+#      - annotation_table
+#      - mapping_results
+#      - assign_results
 
-    scatter: fasta_file
-    run: subworkflow_viral_processing.cwl
+#    scatter: fasta_file
+#    run: subworkflow_viral_processing.cwl
 
 doc: |
   scheme:
