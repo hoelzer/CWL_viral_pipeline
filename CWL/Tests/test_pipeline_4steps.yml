@@ -15,11 +15,11 @@
         class: File
         location: stdout.txt
         path: stdout.txt
-        size: 392
+        size: 703
 
       output_parse:
         - class: File
-          size: 205451
+          size: 117456
           location: High_confidence_putative_viral_contigs.fna
           basename: High_confidence_putative_viral_contigs.fna
           path: High_confidence_putative_viral_contigs.fna
@@ -29,7 +29,7 @@
           basename: Low_confidence_putative_viral_contigs.fna
           path: Low_confidence_putative_viral_contigs.fna
         - class: File
-          size: 83317
+          size: 147155
           location: Putative_prophages.fna
           basename: Putative_prophages.fna
           path: Putative_prophages.fna
@@ -46,7 +46,7 @@
             path: VIRSorter_cat-1.fasta
             location: VIRSorter_cat-1.fasta
           - class: File
-            size: 159145
+            size: 72580
             basename: VIRSorter_cat-2.fasta
             path: VIRSorter_cat-2.fasta
             location: VIRSorter_cat-2.fasta
@@ -56,7 +56,7 @@
             path: VIRSorter_cat-3.fasta
             location: VIRSorter_cat-3.fasta
           - class: File
-            size: 43597
+            size: 106400
             basename: VIRSorter_prophages_cat-4.fasta
             path: VIRSorter_prophages_cat-4.fasta
             location: VIRSorter_prophages_cat-4.fasta
@@ -76,14 +76,17 @@
             basename: VIRSorter_cat-1.gb
             path: VIRSorter_cat-1.gb
             location: VIRSorter_cat-1.gb
+            size: 100598
           - class: File
             basename: VIRSorter_cat-2.gb
             path: VIRSorter_cat-2.gb
             location: VIRSorter_cat-2.gb
+            size: 182085
           - class: File
             basename: VIRSorter_cat-3.gb
             path: VIRSorter_cat-3.gb
             location: VIRSorter_cat-3.gb
+            size: 0
           - class: File
             basename: VIRSorter_prophages_cat-4.gb
             path: VIRSorter_prophages_cat-4.gb
@@ -92,10 +95,12 @@
             basename: VIRSorter_prophages_cat-5.gb
             path: VIRSorter_prophages_cat-5.gb
             location: VIRSorter_prophages_cat-5.gb
+            size: 92828
           - class: File
             path: VIRSorter_prophages_cat-6.gb
             basename: VIRSorter_prophages_cat-6.gb
             location: VIRSorter_prophages_cat-6.gb
+            size: 0
 
       output_parse_stderr:
         class: File

@@ -14,9 +14,9 @@ install:
   - >
     (aria2c -x 16 -s 16 --dir=$TRAVIS_BUILD_DIR/virsorter-data-cache/ ftp://ftp.ebi.ac.uk/pub/databases/metagenomics/VirSorter_data_viral/virsorter-data-v2.tar.gz &&
     tar -xvzf $TRAVIS_BUILD_DIR/virsorter-data-cache/virsorter-data-v2.tar.gz) &
+    docker build -q -t cwl_length_filter_docker:latest $TRAVIS_BUILD_DIR/CWL/Tools/LengthFiltering/ &
     docker pull simroux/virsorter:v1.0.5 &
     docker pull mgnify/virfinder_viral:latest &
-    docker build -q -t cwl_length_filter_docker:latest $TRAVIS_BUILD_DIR/CWL/Tools/LengthFiltering/ &
     docker build -q -t cwl_parse_pred:latest $TRAVIS_BUILD_DIR/CWL/Tools/ParsingPredictions/
     ; wait
   - mv $TRAVIS_BUILD_DIR/virsorter-data $TRAVIS_BUILD_DIR/CWL/Tools/VirSorter/
