@@ -26,7 +26,7 @@ install:
     docker build -q -t ratio_evalue:latest $TRAVIS_BUILD_DIR/CWL/Tools/RatioEvalue/ &
     docker build -q -t sed_docker:latest $TRAVIS_BUILD_DIR/CWL/Tools/Sed/
     ; wait
-  - mv $TRAVIS_BUILD_DIR/virsorter-data_small $TRAVIS_BUILD_DIR/CWL/Tools/VirSorter/
+  - mv $TRAVIS_BUILD_DIR/virsorter-data $TRAVIS_BUILD_DIR/CWL/Tools/VirSorter/
 
 script:
   - echo -e '#!/bin/bash\ncwltool --parallel "$@"' > pcwltool
