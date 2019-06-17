@@ -16,9 +16,9 @@ install:
     tar -xvzf $TRAVIS_BUILD_DIR/virsorter-data-cache/virsorter-data_small.tar.gz) &
     docker build -q -t cwl_length_filter_docker:latest $TRAVIS_BUILD_DIR/CWL/Tools/LengthFiltering/ &
     docker pull simroux/virsorter:v1.0.5 &
-    docker pull mgnify/virfinder_viral:latest &
+    (docker login --password $DOCKER_PASSWORD --username $DOCKER_USERNAME && docker pull mgnify/virfinder_viral:latest) &
     docker build -q -t cwl_parse_pred:latest $TRAVIS_BUILD_DIR/CWL/Tools/ParsingPredictions/ &
-    docker pull mgnify/hmmscan:latest &
+    (docker login --password $DOCKER_PASSWORD --username $DOCKER_USERNAME && docker pull mgnify/hmmscan:latest) &
     docker build -q -t annotation_viral_contigs:latest $TRAVIS_BUILD_DIR/CWL/Tools/Annotation/ &
     docker build -q -t assign_taxonomy:latest $TRAVIS_BUILD_DIR/CWL/Tools/Assign/ &
     docker build -q -t mapping_viral_predictions:latest $TRAVIS_BUILD_DIR/CWL/Tools/Mapping/ &
