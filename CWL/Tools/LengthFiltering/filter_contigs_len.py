@@ -35,6 +35,9 @@ def filter_contigs(**kwargs):
 
 
 if __name__ == "__main__":
+
+	sys.stderr.write('filter_contigs_len started')
+
 	parser = argparse.ArgumentParser(description="Extract sequences at least X kb long")
 	parser.add_argument("-f", dest="fasta_file", help="Relative or absolute path to input fasta file", required=True)
 	parser.add_argument("-l", dest="length", help="Length threshold in kb of selected sequences (default: 5kb)", type=float, default="5.0")
