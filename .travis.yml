@@ -35,7 +35,8 @@ script:
     while sleep 9m; do
       echo "====[ $SECONDS seconds still running ]===="
     done &
-  - export PATH=$PATH:$PWD && cwltest --test $TRAVIS_BUILD_DIR/CWL/Tests/test_pipeline_4steps.yml --timeout 7200 --tool pcwltool
+  #- export PATH=$PATH:$PWD &&
+  - cwltest --test $TRAVIS_BUILD_DIR/CWL/Tests/test_pipeline_4steps.yml --timeout 7200 --tool cwltool
 
 
 # Caching from https://github.com/travis-ci/travis-ci/issues/5358#issuecomment-248915326
