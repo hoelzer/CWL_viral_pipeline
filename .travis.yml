@@ -17,6 +17,7 @@ install:
     docker build -q -t cwl_length_filter_docker:latest $TRAVIS_BUILD_DIR/CWL/Tools/LengthFiltering/ &
     docker pull simroux/virsorter:v1.0.5 &
     docker build -q -t cwl_parse_pred:latest $TRAVIS_BUILD_DIR/CWL/Tools/ParsingPredictions/
+    ; wait
 #    & (docker login --password $DOCKER_PASSWORD --username $DOCKER_USERNAME && docker pull mgnify/hmmscan:latest) &
 #    docker build -q -t annotation_viral_contigs:latest $TRAVIS_BUILD_DIR/CWL/Tools/Annotation/ &
 #    docker build -q -t assign_taxonomy:latest $TRAVIS_BUILD_DIR/CWL/Tools/Assign/ &
@@ -24,7 +25,7 @@ install:
 #    docker build -q -t prodigal_viral:latest $TRAVIS_BUILD_DIR/CWL/Tools/Prodigal/ &
 #    docker build -q -t ratio_evalue:latest $TRAVIS_BUILD_DIR/CWL/Tools/RatioEvalue/ &
 #    docker build -q -t sed_docker:latest $TRAVIS_BUILD_DIR/CWL/Tools/Sed/
-    ; wait
+#    ; wait
   - mv $TRAVIS_BUILD_DIR/virsorter-data $TRAVIS_BUILD_DIR/CWL/Tools/VirSorter/
 
 script:
