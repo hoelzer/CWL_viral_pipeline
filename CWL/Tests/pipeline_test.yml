@@ -18,7 +18,7 @@
 
       output_prodigal:
         - class: File
-          size: 109213
+          size: 61528  #109213
           location: High_confidence_putative_viral_contigs_prodigal.faa
           basename: High_confidence_putative_viral_contigs_prodigal.faa
           path: High_confidence_putative_viral_contigs_prodigal.faa
@@ -28,7 +28,7 @@
           basename: Low_confidence_putative_viral_contigs_prodigal.faa
           path: Low_confidence_putative_viral_contigs_prodigal.faa
         - class: File
-          size: 42325
+          size: 80464  #42325
           location: Putative_prophages_prodigal.faa
           basename: Putative_prophages_prodigal.faa
           path: Putative_prophages_prodigal.faa
