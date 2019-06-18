@@ -10,8 +10,7 @@ install:
   - pip install -q cwl-runner cwltest cwltool
   - sudo apt-get install aria2
   - mkdir -p $TRAVIS_BUILD_DIR/virsorter-data-cache
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker pull mgnify/virfinder_viral:latest
+
 #  - >
 #    (aria2c -x 16 -s 16 --dir=$TRAVIS_BUILD_DIR/virsorter-data-cache/ ftp://ftp.ebi.ac.uk/pub/databases/metagenomics/VirSorter_data_viral/virsorter-data_small.tar.gz &&
 #    tar -xvzf $TRAVIS_BUILD_DIR/virsorter-data-cache/virsorter-data_small.tar.gz) &
@@ -48,7 +47,8 @@ script:
 #    mkdir -p $HOME/docker && docker images -a --filter='dangling=false' --format '{{.Repository}}:{{.Tag}} {{.ID}}'
 #    | xargs -n 2 -t sh -c 'test -e $HOME/docker/$1.tar.gz || docker save $0 | gzip -2 > $HOME/docker/$1.tar.gz'
 
-#before_install:
+before_install:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin && docker pull mgnify/virfinder_viral:latest
 #  # Load cached docker images
 #  - if [[ -d $HOME/docker ]]; then ls $HOME/docker/*.tar.gz | xargs -I {file} sh -c "zcat {file} | docker load"; fi
 
