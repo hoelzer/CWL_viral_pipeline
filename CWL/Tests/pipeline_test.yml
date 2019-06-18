@@ -15,7 +15,6 @@
         class: File
         location: stdout.txt
         path: stdout.txt
-        size: 392
 
       output_prodigal:
         - class: File
