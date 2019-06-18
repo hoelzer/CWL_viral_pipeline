@@ -7,7 +7,7 @@ label: "Biosequence analysis using profile hidden Markov models"
 
 requirements:
   DockerRequirement:
-    dockerPull: hmmscan:latest
+    dockerPull: mgnify/hmmscan:latest
   InlineJavascriptRequirement: {}
 
 baseCommand: ["hmmscan"]

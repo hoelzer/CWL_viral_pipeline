@@ -16,16 +16,14 @@ install:
     tar -xvzf $TRAVIS_BUILD_DIR/virsorter-data-cache/virsorter-data_small.tar.gz) &
     docker build -q -t cwl_length_filter_docker:latest $TRAVIS_BUILD_DIR/CWL/Tools/LengthFiltering/ &
     docker pull simroux/virsorter:v1.0.5 &
-    docker build -q -t cwl_parse_pred:latest $TRAVIS_BUILD_DIR/CWL/Tools/ParsingPredictions/
+    docker build -q -t cwl_parse_pred:latest $TRAVIS_BUILD_DIR/CWL/Tools/ParsingPredictions/ &
+    docker build -q -t annotation_viral_contigs:latest $TRAVIS_BUILD_DIR/CWL/Tools/Annotation/ &
+    docker build -q -t assign_taxonomy:latest $TRAVIS_BUILD_DIR/CWL/Tools/Assign/ &
+    docker build -q -t mapping_viral_predictions:latest $TRAVIS_BUILD_DIR/CWL/Tools/Mapping/ &
+    docker build -q -t prodigal_viral:latest $TRAVIS_BUILD_DIR/CWL/Tools/Prodigal/ &
+    docker build -q -t ratio_evalue:latest $TRAVIS_BUILD_DIR/CWL/Tools/RatioEvalue/ &
+    docker build -q -t sed_docker:latest $TRAVIS_BUILD_DIR/CWL/Tools/Sed/
     ; wait
-#    & (docker login --password $DOCKER_PASSWORD --username $DOCKER_USERNAME && docker pull mgnify/hmmscan:latest) &
-#    docker build -q -t annotation_viral_contigs:latest $TRAVIS_BUILD_DIR/CWL/Tools/Annotation/ &
-#    docker build -q -t assign_taxonomy:latest $TRAVIS_BUILD_DIR/CWL/Tools/Assign/ &
-#    docker build -q -t mapping_viral_predictions:latest $TRAVIS_BUILD_DIR/CWL/Tools/Mapping/ &
-#    docker build -q -t prodigal_viral:latest $TRAVIS_BUILD_DIR/CWL/Tools/Prodigal/ &
-#    docker build -q -t ratio_evalue:latest $TRAVIS_BUILD_DIR/CWL/Tools/RatioEvalue/ &
-#    docker build -q -t sed_docker:latest $TRAVIS_BUILD_DIR/CWL/Tools/Sed/
-#    ; wait
   - mv $TRAVIS_BUILD_DIR/virsorter-data $TRAVIS_BUILD_DIR/CWL/Tools/VirSorter/
 
 script:
@@ -35,8 +33,8 @@ script:
     while sleep 9m; do
       echo "====[ $SECONDS seconds still running ]===="
     done &
-  #- export PATH=$PATH:$PWD &&
-  - cwltest --test $TRAVIS_BUILD_DIR/CWL/Tests/test_pipeline_4steps.yml --timeout 7200 --tool cwltool
+  - export PATH=$PATH:$PWD && cwltool $TRAVIS_BUILD_DIR/CWL/WorkFlow/pipeline.cwl $TRAVIS_BUILD_DIR/CWL/WorkFlow/pipeline.yml
+  #cwltest --test $TRAVIS_BUILD_DIR/CWL/Tests/pipeline_test.yml --timeout 7200 --tool cwltool
 
 
 ## Caching from https://github.com/travis-ci/travis-ci/issues/5358#issuecomment-248915326
@@ -48,6 +46,7 @@ script:
 
 before_install:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin && docker pull mgnify/virfinder_viral:latest
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin && docker pull mgnify/hmmscan:latest
 #  # Load cached docker images
 #  - if [[ -d $HOME/docker ]]; then ls $HOME/docker/*.tar.gz | xargs -I {file} sh -c "zcat {file} | docker load"; fi
 
