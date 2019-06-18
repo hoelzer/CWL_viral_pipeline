@@ -10,7 +10,8 @@ install:
   - pip install -q cwl-runner cwltest cwltool
   - sudo apt-get install aria2
   - mkdir -p $TRAVIS_BUILD_DIR/virsorter-data-cache
-  - docker login --password $DOCKER_PASSWORD --username $DOCKER_USERNAME && docker pull mgnify/virfinder_viral:latest
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker pull mgnify/virfinder_viral:latest
 #  - >
 #    (aria2c -x 16 -s 16 --dir=$TRAVIS_BUILD_DIR/virsorter-data-cache/ ftp://ftp.ebi.ac.uk/pub/databases/metagenomics/VirSorter_data_viral/virsorter-data_small.tar.gz &&
 #    tar -xvzf $TRAVIS_BUILD_DIR/virsorter-data-cache/virsorter-data_small.tar.gz) &
