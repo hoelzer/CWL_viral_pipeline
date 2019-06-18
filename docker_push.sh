@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
-docker push mgnify/virfinder_viral:latest
-
 docker push mgnify/annotation_viral_contigs:latest
 
 docker push mgnify/assign_taxonomy:latest

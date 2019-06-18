@@ -1,7 +1,7 @@
 # cwltest --basedir cwl_test_dir --test ../Tools/VirFinder/virfinder.cwl --tool cwltool
 
-- job: ../Tools/VirFinder/virfinder.yml
-  tool: ../Tools/VirFinder/virfinder.cwl
+- job: CWL/Tools/VirFinder/virfinder.yml
+  tool: CWL/Tools/VirFinder/virfinder.cwl
   output:
       output:
         basename: VirFinder_output.tsv
