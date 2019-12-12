@@ -52,7 +52,7 @@ outputs:
       type: array
       items: File
     outputBinding:
-      glob: "*.fna"
+      glob: $(inputs.output_dir)/*.fna
 
 
 doc: |

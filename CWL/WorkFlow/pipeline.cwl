@@ -86,6 +86,7 @@ steps:
       assembly: length_filter/filtered_contigs_fasta
       virfinder_tsv: virfinder/output
       virsorter_dir: virsorter/predicted_viral_seq_dir
+      output_dir: {default: 'output_parser'}
     out:
       - output_fastas
       - stdout
